@@ -24,7 +24,7 @@ function checkLoginState() {
     if (response.status == "connected") {
       axios
         .post(
-          "http://localhost:3000/users/loginFacebook",
+          "http://35.224.155.134/users/loginFacebook",
           response.authResponse
         )
         .then(result => {

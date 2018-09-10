@@ -6,7 +6,7 @@ if(token) {
 function login() {
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:3000/users/signIn',
+        url: 'http://35.224.155.134/users/signIn',
         data: {
             email: $("#email").val(),
             password: $("#password").val()
@@ -17,6 +17,8 @@ function login() {
             window.location = 'dashboard.html'
         })
         .fail(err => {
+            console.log(err);
+            
             if(err.responseJSON.err) {
                 let data = `
                 <div class="alert alert-danger" role="alert" style="height:100%">

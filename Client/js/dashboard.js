@@ -22,7 +22,7 @@ window.onscroll = function() {
 function createtask() {
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:3000/task/',
+        url: 'http://35.224.155.134/task/',
         headers: {
             token
         },
@@ -75,7 +75,7 @@ function createtask() {
 
 $.ajax({
     method: 'GET',
-    url: 'http://localhost:3000/task/',
+    url: 'http://35.224.155.134/task/',
     headers: {
         token
     }
@@ -142,7 +142,7 @@ function deleteTask(data) {
     let idTask = data.getAttribute('index')
     $.ajax({
         method: 'DELETE',
-        url: `http://localhost:3000/task/${idTask}`,
+        url: `http://35.224.155.134/task/${idTask}`,
         headers: {
             token
         }  
@@ -171,7 +171,7 @@ function getOneTask(data) {
     let idTask = data.getAttribute('index')
     $.ajax({
         method: 'GET',
-        url: `http://localhost:3000/task/task/${idTask}`,
+        url: `http://35.224.155.134/task/task/${idTask}`,
         headers: {
             token
         }
@@ -216,7 +216,7 @@ function edittask(data) {
     let idTask = data.getAttribute('index')
     $.ajax({
         method: 'PUT',
-        url: `http://localhost:3000/task/${idTask}`,
+        url: `http://35.224.155.134/task/${idTask}`,
         headers: {
             token
         },
@@ -254,7 +254,7 @@ function taskdone(data) {
     let taskName = data.getAttribute('taskName')
     $.ajax({
         method: 'PUT',
-        url: `http://localhost:3000/task/status/${idTask}`,
+        url: `http://35.224.155.134/task/status/${idTask}`,
         headers: {
             token
         },
@@ -285,7 +285,7 @@ function taskdone(data) {
 function priority() {
     $.ajax({
         method: 'GET',
-        url: `http://localhost:3000/task/priority/`,
+        url: `http://35.224.155.134/task/priority/`,
         headers: {
             token
         }  
@@ -352,7 +352,7 @@ function priority() {
 function done() {
     $.ajax({
         method: 'GET',
-        url: `http://localhost:3000/task/done/`,
+        url: `http://35.224.155.134/task/done/`,
         headers: {
             token
         }  
@@ -419,14 +419,12 @@ function done() {
 function qoutes() {
     $.ajax({
         method: 'GET',
-        url: `http://localhost:3000/qoutes`,
+        url: `http://35.224.155.134/qoutes`,
         headers: {
             token
         }  
     })
         .done(result => {
-            console.log(result.quotes.quote);
-            console.log(result.quotes.author);
             let data = `
                 <p>"${result.quotes.quote}"</p>
                 <p>~${result.quotes.author}~</p>

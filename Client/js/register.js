@@ -6,7 +6,7 @@ if(token) {
 function register() {
         $.ajax({
             method: 'POST',
-            url: 'http://localhost:3000/users/signUp',
+            url: 'http://35.224.155.134/users/signUp',
             data: {
                 name: $("#name").val(),
                 email: $("#email").val(),
