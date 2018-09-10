@@ -6,7 +6,7 @@ if(token) {
 function register() {
         $.ajax({
             method: 'POST',
-            url: 'http://35.232.204.104/users/signUp',
+            url: 'https://server-todo.wahyudisetiaji.xyz/users/signUp',
             data: {
                 name: $("#name").val(),
                 email: $("#email").val(),

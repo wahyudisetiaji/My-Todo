@@ -6,7 +6,7 @@ if(token) {
 function login() {
     $.ajax({
         method: 'POST',
-        url: 'http://35.232.204.104/users/signIn',
+        url: 'https://server-todo.wahyudisetiaji.xyz/users/signIn',
         data: {
             email: $("#email").val(),
             password: $("#password").val()

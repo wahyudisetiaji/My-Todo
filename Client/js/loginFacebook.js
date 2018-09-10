@@ -24,7 +24,7 @@ function checkLoginState() {
     if (response.status == "connected") {
       axios
         .post(
-          "http://35.232.204.104/users/loginFacebook",
+          "https://server-todo.wahyudisetiaji.xyz/users/loginFacebook",
           response.authResponse
         )
         .then(result => {
