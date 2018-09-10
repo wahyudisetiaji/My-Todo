@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>My-Todo</title>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar" class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#" style="color:white" onclick="closeModal()">My-Todo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" style="color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#" onclick="priority()">Task Priority</a>
+                    <a class="dropdown-item" href="#" onclick="done()">Task Done</a>
+                  </div>
+                </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+           <a class="navbar" href="#" onclick="logout()" style="color:white">Log Out</a> 
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+            <!-- Button trigger modal -->
+              <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" style="margin-left:auto;margin-right:auto;display:block;margin: 10px;background-color: gray;">
+                  New Task <span><i class="fa fa-plus-square" style="font-size:24px"></i></span>
+               </button> 
+               <button type="button" class="btn" onclick="qoutes()" data-toggle="modal" data-target=".modal-qoutes" style="margin-left:auto;margin-right:auto;display:block;margin: 10px;background-color: gray;">
+                  Qoutes of the day <span><i class="fa fa-plus-square" style="font-size:24px"></i></span>
+               </button> 
+
+               <div class="container">
+                 <div class="error-task" style="margin-left:auto;margin-right:auto;display:block;margin: 10px;"></div>
+                 <div class="success-task" style="margin-left:auto;margin-right:auto;display:block;margin: 10px;"></div>
+               </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+                      <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                        <span aria-hidden="true" onclick="closeModal()">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="error"></div>
+                            <div class="success"></div>
+                            <div class="form-group">
+                              <label for="exampleInputText1">Name Task</label>
+                              <input type="text" class="form-control" id="task" aria-describedby="textHelp" placeholder="Enter name task">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputDate1">Due Date</label>
+                              <input type="date" class="form-control" id="date">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Status</label>
+                                <select class="form-control" id="status">
+                                  <option value="Priority">Priority</option>
+                                  <option value="Not Priority">Not Priority</option>
+                                </select>
+                              </div>
+                          </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
+                      <button type="button" class="btn btn-secondary" onclick="createtask()">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal Edit -->
+              <div class="modal fade modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit New Task</h5>
+                        <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                          <span aria-hidden="true" onclick="closeModal()">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body taskEdit">
+                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <!-- Modal Qoutes-->
+              <div class="modal fade modal-qoutes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Qoutes of the day</h5>
+                        <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                          <span aria-hidden="true" onclick="closeModal()">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body qoutesModal">
+                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+      </div>
+      <div class="container">
+          <div class="row row-task">
+          </div>
+      </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>

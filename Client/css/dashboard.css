@@ -1,0 +1,12 @@
+.navbar {
+  background-color: black;
+}
+
+body {
+  background-image: url("../img/sergey-zolkin-192937-unsplash.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: 100%;
+  font-family: "Lucida Console", Monaco, monospace;
+}
