@@ -6,7 +6,7 @@ if(token) {
 function login() {
     $.ajax({
         method: 'POST',
-        url: 'http://35.224.155.134/users/signIn',
+        url: 'http://35.232.204.104/users/signIn',
         data: {
             email: $("#email").val(),
             password: $("#password").val()
